@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Crypto AML — Anti-Money Laundering Compliance for Virtual Assets (2026)</title>
+  <meta name="description" content="Crypto AML guide (2026): how anti-money laundering compliance works for virtual assets, FATF obligations, transaction monitoring, blockchain analytics tools, risk scoring, SAR filing, and best practices for VASPs and DeFi protocols.">
+  <meta name="author" content="Crypto Finance Experts">
+  <link rel="canonical" href="https://crypto-aml.example.com/">
+  <link rel="icon" type="image/png" href="Tornado.jpg">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://crypto-aml.example.com/">
+  <meta property="og:title" content="Crypto AML — Anti-Money Laundering Compliance for Virtual Assets (2026)">
+  <meta property="og:description" content="How crypto AML works: FATF VASP obligations, transaction monitoring, risk scoring, blockchain analytics tools, SAR filing, and best practices.">
+  <meta property="og:image" content="cover.png">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Crypto AML — Anti-Money Laundering for Virtual Assets (2026)">
+  <meta property="twitter:description" content="Practical crypto AML guide: VASP obligations, transaction monitoring, risk scoring, and SAR filing.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Crypto AML — Anti-Money Laundering Compliance for Virtual Assets (2026)",
+    "description": "How crypto AML compliance works: FATF VASP obligations, transaction monitoring, blockchain analytics, risk scoring, SAR filing, and best practices.",
+    "author": { "@type": "Organization", "name": "Crypto Finance Experts", "url": "https://crypto-aml.example.com/" },
+    "publisher": { "@type": "Organization", "name": "Crypto Finance Experts" },
+    "datePublished": "2026-03-18",
+    "dateModified": "2026-03-18",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://crypto-aml.example.com/" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://crypto-aml.example.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Compliance Guides", "item": "https://crypto-aml.example.com/guides/" },
+      { "@type": "ListItem", "position": 3, "name": "Crypto AML", "item": "https://crypto-aml.example.com/crypto-aml/" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is crypto AML and why does it matter?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Crypto AML (anti-money laundering) is the set of controls, policies, and tools that virtual asset businesses use to detect and prevent money laundering through blockchain transactions. It encompasses customer due diligence (CDD), ongoing transaction monitoring, risk-based screening of wallet addresses, sanctions checking against OFAC and other lists, and suspicious activity reporting (SAR). It matters because FATF Recommendation 15 requires VASPs to apply AML/CFT controls equivalent to traditional financial institutions, and regulators in the EU, US, and UK have all enacted legislation to enforce this."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the core components of a crypto AML programme?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A complete crypto AML programme includes: customer due diligence (KYC) at onboarding to verify identity; ongoing transaction monitoring using blockchain analytics tools to screen wallet addresses for illicit exposure; sanctions screening against OFAC SDN and equivalent lists; Travel Rule compliance for transfers above jurisdiction thresholds; suspicious activity reporting (SAR/STR) to the relevant financial intelligence unit; record-keeping for the required retention period; and a written AML policy with documented risk appetite and staff training."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      /* Midnight Blue + Electric Cyan */
+      --primary: #1E40AF;
+      --primary-600: #1D3A9E;
+      --primary-700: #1E3A8A;
+      --accent: #22D3EE;
+      --accent-soft: #A5F3FC;
+
+      --ink: #ECFEFF;
+      --muted: #A1A1AA;
+      --muted-2: #71717A;
+
+      --bg: #01050F;
+      --panel: #030B1A;
+      --panel-2: #050F22;
+      --line: rgba(255,255,255,.10);
+
+      --ok: #22C55E;
+      --warn: #F59E0B;
+      --error: #EF4444;
+
+      --shadow: 0 18px 44px rgba(0,0,0,.60);
+      --radius: 14px;
+      --radius-lg: 22px;
+      --gap: 1.25rem;
+      --gap-lg: 2rem;
+    }
+
+    * { box-sizing: border-box }
+    html, body { height: 100% }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      color: var(--muted);
+      background:
+        radial-gradient(900px 600px at 12% 0%,  rgba(30,64,175,.22), transparent 60%),
+        radial-gradient(900px 600px at 88% 12%, rgba(34,211,238,.07), transparent 60%),
+        radial-gradient(900px 600px at 50% 90%, rgba(29,58,158,.16), transparent 60%),
+        linear-gradient(180deg, #01030D 0%, #01050F 50%, #01030D 100%);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none }
+    a:hover { text-decoration: underline }
+    img { max-width: 100%; height: auto; display: block }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem }
+
+    h1,h2,h3,h4 { color: var(--ink); line-height: 1.25; margin: 0 0 .6rem }
+    h1 { font-size: clamp(2rem,4.5vw,3.1rem); font-weight: 950; letter-spacing: .2px }
+    h2 { font-size: clamp(1.35rem,2.8vw,2rem); margin-top: 2.2rem; padding-top: .6rem; border-top: 1px solid var(--line) }
+    h3 { font-size: clamp(1.05rem,2.2vw,1.3rem); color: var(--accent-soft) }
+    p,li,td,th { font-size: 1rem }
+    .lead { font-size: 1.125rem; color: #CFFAFE }
+    .muted { color: var(--muted) }
+    .muted-2 { color: var(--muted-2) }
+
+    .breadcrumb { padding: .7rem 0; font-size: .85rem; color: var(--muted-2) }
+    .breadcrumb a { color: var(--muted); font-weight: 600 }
+    .breadcrumb a:hover { color: var(--accent) }
+    .breadcrumb span { margin: 0 .4rem; opacity: .5 }
+
+    .meta-bar { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: .75rem; font-size: .83rem; color: var(--muted-2) }
+    .meta-bar time { font-weight: 700; color: var(--accent-soft) }
+
+    header.hero {
+      padding: clamp(2rem,6vw,4rem) 0;
+      background:
+        radial-gradient(700px 420px at 18% 10%, rgba(30,64,175,.26), transparent 60%),
+        radial-gradient(700px 420px at 90% 20%, rgba(34,211,238,.09), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.03), transparent 55%);
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-grid { display: grid; gap: var(--gap-lg); grid-template-columns: 1fr }
+    .hero-card {
+      background: linear-gradient(180deg, rgba(5,15,34,.88), rgba(3,11,26,.72));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: clamp(1rem,3vw,1.75rem);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+    .brand-row { display: flex; align-items: center; gap: .9rem; margin-bottom: .75rem }
+    .brand-logo {
+      width: 54px; height: 54px; border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      padding: .35rem; object-fit: contain;
+      box-shadow: 0 10px 22px rgba(0,0,0,.40);
+      flex: 0 0 auto;
+    }
+
+    .cta-wrap { display: flex; justify-content: center; margin-top: 1.5rem }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1D4ED8 0%, #1E40AF 55%, #0EA5E9 100%);
+      color: #fff;
+      padding: 1.05rem 3rem;
+      border-radius: 14px;
+      font-weight: 900;
+      font-size: 1.15rem;
+      letter-spacing: .4px;
+      box-shadow:
+        0 0 0 1px rgba(34,211,238,.28),
+        0 8px 24px rgba(30,64,175,.50),
+        0 20px 48px rgba(30,64,175,.22);
+      border: 1px solid rgba(255,255,255,.18);
+      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .cta:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow:
+        0 0 0 2px rgba(34,211,238,.45),
+        0 12px 32px rgba(30,64,175,.60),
+        0 28px 60px rgba(30,64,175,.28);
+      filter: brightness(1.1);
+      text-decoration: none;
+    }
+
+    .note {
+      border-left: 3px solid var(--accent);
+      padding: .75rem 1rem;
+      background: rgba(34,211,238,.07);
+      border-radius: 10px;
+      color: #CFFAFE;
+    }
+
+    section.step-guide { padding: clamp(2rem,6vw,3.5rem) 0 }
+    .steps { display: grid; gap: var(--gap); grid-template-columns: 1fr }
+    .step {
+      background: linear-gradient(180deg, rgba(5,15,34,.82), rgba(3,11,26,.66));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      box-shadow: 0 12px 26px rgba(0,0,0,.50);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .step:hover { transform: translateY(-4px); box-shadow: 0 18px 34px rgba(0,0,0,.60) }
+    .step .icon {
+      width: 54px; height: 54px; border-radius: 50%;
+      display: inline-grid; place-items: center;
+      background: rgba(30,64,175,.22);
+      margin-bottom: .6rem; color: var(--accent-soft);
+      font-weight: 950;
+      border: 1px solid rgba(255,255,255,.10);
+    }
+
+    main .card {
+      background: linear-gradient(180deg, rgba(5,15,34,.74), rgba(3,11,26,.60));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin: 1.25rem 0;
+      box-shadow: 0 12px 26px rgba(0,0,0,.50);
+    }
+
+    .grid-2 { display: grid; gap: var(--gap); grid-template-columns: 1fr }
+    .pillbar { display: flex; flex-wrap: wrap; gap: .6rem; margin: .75rem 0 0 }
+    .pill { border: 1px solid var(--line); background: rgba(255,255,255,.05); padding: .4rem .65rem; border-radius: 999px; font-weight: 800; color: #CFFAFE }
+
+    .toc { border: 1px solid var(--line); background: linear-gradient(180deg, rgba(30,64,175,.10), rgba(255,255,255,.02)); border-radius: var(--radius); padding: 1rem }
+    .toc strong { color: var(--ink) }
+    .toc ul { margin: .5rem 0 0; padding-left: 1.1rem }
+    .toc li { margin: .25rem 0 }
+    .toc a { font-weight: 800; color: var(--accent) }
+
+    table { width: 100%; border-collapse: collapse; overflow: hidden; border-radius: 12px }
+    th,td { padding: .9rem; border-bottom: 1px solid var(--line) }
+    th { background: rgba(30,64,175,.12); color: var(--ink); text-align: left }
+    tr.highlight { background: rgba(30,64,175,.08) }
+    tr:hover { background: rgba(255,255,255,.03) }
+
+    .ok { color: var(--ok) } .warn { color: var(--warn) } .err { color: var(--error) }
+
+    .eeat { background: linear-gradient(180deg, rgba(30,64,175,.10), rgba(255,255,255,.02)); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem; box-shadow: 0 12px 26px rgba(0,0,0,.50) }
+
+    .faq-item { border-bottom: 1px solid var(--line); padding: .9rem 0 }
+    .faq-button { all: unset; display: flex; justify-content: space-between; align-items: center; width: 100%; cursor: pointer; padding: .3rem 0 }
+    .faq-button:focus-visible { outline: 2px solid var(--accent) }
+    .faq-button h3 { margin: 0; font-weight: 950 }
+    .faq-content { max-height: 0; overflow: hidden; transition: max-height .28s ease }
+    .faq-content.open { padding-top: .6rem }
+    .faq-plus { font-weight: 950; color: var(--accent-soft); font-size: 1.1rem; flex-shrink: 0; margin-left: .75rem }
+
+    .callout-grid { display: grid; gap: var(--gap); grid-template-columns: 1fr; margin-top: .75rem }
+    .mini { background: rgba(255,255,255,.03); border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem }
+    .mini h3 { margin-bottom: .35rem }
+    .kpi-badges { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: .5rem }
+    .kpi-badges span { border: 1px solid rgba(30,64,175,.28); background: rgba(30,64,175,.12); color: var(--accent-soft); padding: .3rem .55rem; border-radius: 999px; font-weight: 900; font-size: .9rem }
+
+    .stat-block { display: flex; flex-wrap: wrap; gap: var(--gap); margin: 1rem 0 }
+    .stat { flex: 1; min-width: 140px; background: rgba(30,64,175,.10); border: 1px solid rgba(34,211,238,.16); border-radius: var(--radius); padding: .9rem 1rem; text-align: center }
+    .stat-num { display: block; font-size: 1.75rem; font-weight: 950; color: var(--accent); line-height: 1.1 }
+    .stat-lbl { font-size: .82rem; color: var(--muted); margin-top: .25rem }
+
+    .risk-row { display: flex; align-items: center; gap: .75rem; margin: .4rem 0 }
+    .risk-lbl { min-width: 90px; font-size: .85rem; font-weight: 700; color: var(--accent-soft) }
+    .risk-track { flex: 1; height: 6px; background: rgba(255,255,255,.08); border-radius: 99px; overflow: hidden }
+    .risk-fill { height: 100%; border-radius: 99px }
+    .risk-fill.low  { background: linear-gradient(90deg,#15803D,#22C55E); width: 25% }
+    .risk-fill.med  { background: linear-gradient(90deg,#B45309,#F59E0B); width: 55% }
+    .risk-fill.high { background: linear-gradient(90deg,#7F1D1D,#EF4444); width: 88% }
+    .risk-val { min-width: 55px; text-align: right; font-size: .82rem; font-weight: 800 }
+
+    @media (min-width: 860px) {
+      .steps { grid-template-columns: repeat(4,1fr) }
+      .grid-2 { grid-template-columns: 1fr 1fr }
+      .callout-grid { grid-template-columns: 1fr 1fr }
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero" role="banner">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/guides/">Compliance Guides</a><span>›</span>
+      <span aria-current="page">Crypto AML</span>
+    </nav>
+
+    <div class="hero-grid">
+      <div class="hero-card" aria-label="Intro">
+        <div class="meta-bar">
+          <span>By <strong>Crypto Finance Experts</strong></span>
+          <span>·</span>
+          <time datetime="2026-03-18">March 18, 2026</time>
+          <span>·</span>
+          <span>9 min read</span>
+        </div>
+
+        <div class="brand-row">
+          <img class="brand-logo" src="Tornado.jpg" alt="Crypto AML compliance reference">
+          <div>
+            <div class="muted" style="font-weight:900;letter-spacing:.2px;">Operational Guide</div>
+            <div class="muted-2" style="font-size:.95rem;">VASP Obligations&nbsp;•&nbsp;Transaction Monitoring&nbsp;•&nbsp;KYC/AML&nbsp;•&nbsp;SAR Filing</div>
+          </div>
+        </div>
+
+        <h1>Crypto AML</h1>
+        <p class="lead">
+          A practical guide to anti-money laundering compliance for virtual assets:
+          what FATF requires of VASPs, how transaction monitoring works on-chain,
+          which tools identify high-risk addresses, when to file a suspicious activity
+          report, and how to build a programme that satisfies regulators without
+          generating excessive false positives.
+        </p>
+
+        <div class="cta-wrap">
+          <a href="https://en.wikipedia.org/wiki/Cryptocurrency_tumbler"
+             class="cta" target="_blank" rel="noopener" aria-label="Crypto AML">
+            Crypto AML
+          </a>
+        </div>
+
+        <div class="note" style="margin-top:1.25rem;">
+          <strong>Key principle:</strong> Crypto AML is a risk-based framework, not a zero-tolerance
+          system. The goal is proportionate controls — blocking clearly illicit funds while
+          allowing legitimate users to transact without unnecessary friction.
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="step-guide" aria-labelledby="workflow-title">
+  <div class="container">
+    <h2 id="workflow-title">Crypto AML Programme: Know → Monitor → Report → Document</h2>
+    <div class="steps" role="list">
+      <article class="step" role="listitem">
+        <div class="icon">①</div>
+        <h3>Know your customer (KYC/CDD)</h3>
+        <p>Verify user identity at onboarding using CDD procedures. Establish the expected transaction profile. Apply enhanced due diligence (EDD) for high-risk users, PEPs, and high-value accounts.</p>
+      </article>
+      <article class="step" role="listitem">
+        <div class="icon">②</div>
+        <h3>Monitor transactions on-chain</h3>
+        <p>Screen wallet addresses at deposit and withdrawal using blockchain analytics. Flag exposure to mixers, sanctioned entities, darknet markets, and other illicit clusters. Re-screen periodically for ongoing relationships.</p>
+      </article>
+      <article class="step" role="listitem">
+        <div class="icon">③</div>
+        <h3>Report suspicious activity</h3>
+        <p>File SARs (or STRs) with your jurisdiction's FIU when you identify transactions you know or suspect involve criminal proceeds. Do not tip off the subject of a SAR filing.</p>
+      </article>
+      <article class="step" role="listitem">
+        <div class="icon">④</div>
+        <h3>Document everything</h3>
+        <p>Maintain records of KYC data, screening results, compliance decisions, and SAR filings for the required retention period (typically 5 years). Regulators examine the audit trail — not just the existence of controls.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<main class="container" role="main">
+<article>
+
+  <section class="card toc" aria-label="Table of Contents">
+    <strong>On this page (Crypto AML):</strong>
+    <ul>
+      <li><a href="#overview">What crypto AML is and who it applies to</a></li>
+      <li><a href="#stats">Crypto AML in numbers: illicit activity scale (2024–2026)</a></li>
+      <li><a href="#framework">Crypto AML framework: core obligations explained</a></li>
+      <li><a href="#transaction-monitoring">Crypto AML transaction monitoring: how it works on-chain</a></li>
+      <li><a href="#risk-categories">Risk categories in crypto AML screening</a></li>
+      <li><a href="#fatf">FATF Travel Rule and crypto AML requirements</a></li>
+      <li><a href="#tools">Crypto AML tool comparison</a></li>
+      <li><a href="#sar">SAR filing in crypto AML programmes</a></li>
+      <li><a href="#review">Evaluating a crypto AML compliance provider</a></li>
+      <li><a href="#comparison">Manual vs automated crypto AML monitoring</a></li>
+      <li><a href="#best-practices">Best practices for crypto AML teams</a></li>
+      <li><a href="#troubleshooting">Troubleshooting crypto AML issues</a></li>
+      <li><a href="#eeat">Sources &amp; references</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </section>
+
+  <section class="card" id="overview">
+    <h2>What Crypto AML Is — and Who It Applies To</h2>
+    <p>
+      Crypto AML (anti-money laundering) is the set of controls, policies, and tools that
+      virtual asset businesses use to detect and prevent money laundering through blockchain
+      transactions. It encompasses customer due diligence, ongoing transaction monitoring,
+      wallet address screening, sanctions checking, and suspicious activity reporting.
+    </p>
+
+    <div class="pillbar">
+      <span class="pill">KYC / CDD</span>
+      <span class="pill">Transaction Monitoring</span>
+      <span class="pill">VASP Obligations</span>
+      <span class="pill">Sanctions Screening</span>
+      <span class="pill">SAR / STR Filing</span>
+    </div>
+
+    <div class="callout-grid" role="list">
+      <div class="mini" role="listitem">
+        <h3>Regulated entities (legally required)</h3>
+        <p class="muted">Exchanges, custodians, OTC desks, fiat on-ramps, and payment processors are classified as VASPs under FATF Recommendation 15 and must apply full AML/CFT controls. Full guidance at <a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Guidance-RBA-virtual-assets-2021.html" target="_blank" rel="noopener nofollow">fatf-gafi.org</a>.</p>
+        <div class="kpi-badges"><span>Exchanges</span><span>Custodians</span><span>Payment processors</span></div>
+      </div>
+      <div class="mini" role="listitem">
+        <h3>DeFi protocols (evolving obligations)</h3>
+        <p class="muted">Fully decentralised protocols without a central operator remain in regulatory grey territory in most jurisdictions — but frontend operators, deployer teams, and governance multisigs face increasing scrutiny. The FATF's 2021 guidance pushes toward broader VASP classification.</p>
+        <div class="kpi-badges"><span>DeFi frontends</span><span>Deployer teams</span><span>Growing exposure</span></div>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:1rem;">
+      <strong>Risk-based approach:</strong> Effective crypto AML is not a zero-tolerance system.
+      FATF requires a <em>risk-based</em> approach — applying controls proportionate to the
+      risk level identified. High-risk customers and transactions receive enhanced scrutiny;
+      low-risk customers receive standard monitoring. Disproportionate blocking damages
+      legitimate users and creates legal liability.
+    </div>
+  </section>
+
+  <section class="card" id="stats">
+    <h2>Crypto AML in Numbers: Illicit Activity Scale (2024–2026)</h2>
+
+    <div class="stat-block" aria-label="Key AML statistics">
+      <div class="stat">
+        <span class="stat-num">$24.2B</span>
+        <div class="stat-lbl">Illicit crypto volume in 2023<br><small>Chainalysis 2024 Report</small></div>
+      </div>
+      <div class="stat">
+        <span class="stat-num">$11.5B</span>
+        <div class="stat-lbl">Sent to sanctioned entities<br><small>Largest single illicit category</small></div>
+      </div>
+      <div class="stat">
+        <span class="stat-num">0.34%</span>
+        <div class="stat-lbl">Share of all crypto flagged as illicit<br><small>Down from 0.42% in 2022</small></div>
+      </div>
+      <div class="stat">
+        <span class="stat-num">72%</span>
+        <div class="stat-lbl">Illicit crypto passing through VASPs<br><small>FATF 2024 evaluation rounds</small></div>
+      </div>
+    </div>
+
+    <div class="note">
+      Illicit volume as a share of total crypto is falling, but the absolute amount is rising with market growth. Regulators cite the absolute figure when assessing whether existing AML frameworks are adequate. Full data: <a href="https://www.chainalysis.com/reports/crypto-crime-report/" target="_blank" rel="noopener nofollow">chainalysis.com/reports</a>.
+    </div>
+  </section>
+
+  <section class="card" id="framework">
+    <h2>Crypto AML Framework: Core Obligations Explained</h2>
+    <p>
+      A complete crypto AML programme has five interlocking components. Weakness in any
+      one creates compliance gaps that regulators and bad actors both exploit.
+    </p>
+
+    <div class="callout-grid">
+      <div class="mini">
+        <h3>1. Customer Due Diligence (CDD)</h3>
+        <p class="muted">Verify identity at onboarding — name, date of birth, address, government ID. Establish an expected transaction profile. Apply Enhanced Due Diligence (EDD) for Politically Exposed Persons (PEPs), high-risk jurisdictions, and accounts above defined value thresholds.</p>
+        <div class="kpi-badges"><span>KYC documents</span><span>PEP screening</span><span>EDD for high risk</span></div>
+      </div>
+      <div class="mini">
+        <h3>2. Ongoing Transaction Monitoring</h3>
+        <p class="muted">Screen wallet addresses at every deposit and withdrawal using blockchain analytics. Maintain behavioural rules that flag unusual patterns — rapid chain-hopping, structuring below reporting thresholds, sudden large inbound transfers inconsistent with the stated customer profile.</p>
+        <div class="kpi-badges"><span>Real-time API screening</span><span>Behavioural rules</span><span>Periodic re-screening</span></div>
+      </div>
+      <div class="mini">
+        <h3>3. Sanctions Screening</h3>
+        <p class="muted">Screen all users and counterparty wallet addresses against OFAC SDN, EU consolidated sanctions list, UN Security Council list, and other applicable sanctions regimes. Sanctions screening is a separate, parallel obligation to AML monitoring — not a subset of it. OFAC list at <a href="https://ofac.treasury.gov/sanctions-programs-and-country-information" target="_blank" rel="noopener nofollow">ofac.treasury.gov</a>.</p>
+        <div class="kpi-badges"><span>OFAC SDN</span><span>EU consolidated list</span><span>Parallel to AML</span></div>
+      </div>
+      <div class="mini">
+        <h3>4. SAR / STR Filing</h3>
+        <p class="muted">File Suspicious Activity Reports (SARs) with your jurisdiction's Financial Intelligence Unit when transactions are suspected to involve criminal proceeds. In the US, file with FinCEN at <a href="https://bsaefiling.fincen.treas.gov/" target="_blank" rel="noopener nofollow">bsaefiling.fincen.treas.gov</a>. Never tip off the subject of a SAR.</p>
+        <div class="kpi-badges"><span>FinCEN (US)</span><span>NCA (UK)</span><span>No tipping off</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="transaction-monitoring">
+    <h2>Crypto AML Transaction Monitoring: How It Works On-Chain</h2>
+    <p>
+      On-chain transaction monitoring relies on blockchain analytics tools that maintain
+      continuously-updated entity databases. When a wallet address is submitted, the tool
+      traces its fund flows to known entity clusters and returns a risk score with a category
+      breakdown based on exposure type and hop distance.
+    </p>
+
+    <div class="callout-grid">
+      <div class="mini">
+        <h3>Heuristic clustering</h3>
+        <p class="muted">Tools group addresses into entity clusters using common-input-ownership heuristics, exchange deposit patterns, law enforcement intelligence, and OSINT. Named clusters (exchanges, darknet markets, ransomware groups) form the reference database against which every screened address is compared.</p>
+        <div class="kpi-badges"><span>Common-input heuristic</span><span>Entity clusters</span><span>Continuous updates</span></div>
+      </div>
+      <div class="mini">
+        <h3>Direct vs indirect exposure</h3>
+        <p class="muted">Direct (1-hop) interaction with a known illicit cluster is treated as a strong signal. Indirect exposure at 2+ hops — where a counterparty of yours has the connection — carries far lower compliance weight. Understanding hop distance is essential for calibrating proportionate responses. A full explainer on how mixing obscures hop chains: <a href="https://en.wikipedia.org/wiki/Cryptocurrency_tumbler" target="_blank" rel="noopener nofollow">cryptocurrency tumbler (Wikipedia)</a>.</p>
+        <div class="kpi-badges"><span>1 hop = direct</span><span>2+ hops = indirect</span><span>Distance × volume</span></div>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Limitation:</strong> Heuristic clustering is probabilistic. False positives occur for CoinJoin users, shared exchange hot wallets, and multi-sig setups. Every high-risk result requires human analyst review before adverse action — automated blocking on raw scores alone is not a defensible compliance programme.
+    </div>
+  </section>
+
+  <section class="card" id="risk-categories">
+    <h2>Risk Categories in Crypto AML Screening</h2>
+
+    <div style="margin:.75rem 0">
+      <div class="risk-row"><span class="risk-lbl">Low (0–25)</span><div class="risk-track"><div class="risk-fill low"></div></div><span class="risk-val ok">Proceed</span></div>
+      <div class="risk-row"><span class="risk-lbl">Medium (26–74)</span><div class="risk-track"><div class="risk-fill med"></div></div><span class="risk-val warn">EDD</span></div>
+      <div class="risk-row"><span class="risk-lbl">High (75–100)</span><div class="risk-track"><div class="risk-fill high"></div></div><span class="risk-val err">Block / SAR</span></div>
+    </div>
+
+    <table aria-label="Crypto AML risk categories">
+      <thead>
+        <tr><th>Category</th><th>Severity</th><th>Compliance response</th></tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td><strong>Sanctioned entity (OFAC SDN)</strong></td>
+          <td class="err">Critical</td>
+          <td>Immediate block; SAR mandatory for US-nexus VASPs; no discretion</td>
+        </tr>
+        <tr>
+          <td><strong>Mixer / tumbler</strong></td>
+          <td class="err">High</td>
+          <td>Block above volume threshold; source-of-funds request; possible SAR</td>
+        </tr>
+        <tr class="highlight">
+          <td><strong>Darknet market</strong></td>
+          <td class="err">High</td>
+          <td>Block; SAR filing strongly recommended</td>
+        </tr>
+        <tr>
+          <td><strong>Ransomware</strong></td>
+          <td class="err">High</td>
+          <td>Block; SAR; paying ransomware may itself be prohibited in some jurisdictions</td>
+        </tr>
+        <tr class="highlight">
+          <td><strong>Fraud / scam</strong></td>
+          <td class="warn">Medium–High</td>
+          <td>Assess victim vs participant; enhanced review; consider SAR</td>
+        </tr>
+        <tr>
+          <td><strong>Unregulated P2P exchange</strong></td>
+          <td class="warn">Medium</td>
+          <td>Enhanced due diligence; source-of-funds documentation</td>
+        </tr>
+        <tr class="highlight">
+          <td><strong>Gambling</strong></td>
+          <td class="warn">Low–Medium</td>
+          <td>Jurisdiction-dependent; document and assess volume</td>
+        </tr>
+        <tr>
+          <td><strong>Regulated exchange</strong></td>
+          <td class="ok">Low</td>
+          <td>Proceed; standard monitoring</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>Rule:</strong> Write a category-response matrix before configuring any tool threshold. Sanctions exposure triggers automatic blocking regardless of overall score. One-size thresholds produce unnecessary false positives on lower-risk categories.
+    </div>
+  </section>
+
+  <section class="card" id="fatf">
+    <h2>FATF Travel Rule and Crypto AML Requirements (2026)</h2>
+    <p>
+      The FATF Travel Rule (Recommendation 16) extends the traditional wire-transfer
+      information requirement to virtual asset transfers. VASPs must collect and transmit
+      originator and beneficiary identity data with each transfer above the jurisdiction threshold.
+    </p>
+    <ul>
+      <li><strong>Standard threshold:</strong> USD/EUR 1,000 in most jurisdictions.</li>
+      <li><strong>EU Transfer of Funds Regulation (TFR, 2023):</strong> no minimum — all transfers require identity data. The strictest implementation globally.</li>
+      <li><strong>US BSA / FinCEN:</strong> Travel Rule applies above USD 3,000 for MSBs. Separate OFAC screening obligation applies at all amounts. Guidance at <a href="https://www.fincen.gov/resources/statutes-regulations/guidance/application-fincens-regulations-certain-business-models" target="_blank" rel="noopener nofollow">fincen.gov</a>.</li>
+      <li><strong>Unhosted wallets:</strong> transfers to/from self-custody wallets above the threshold require proof of wallet ownership and enhanced due diligence in most jurisdictions.</li>
+    </ul>
+
+    <div class="note">
+      Travel Rule compliance and transaction monitoring are parallel obligations — passing originator data to a receiving VASP does not discharge the duty to screen the funds for illicit exposure.
+    </div>
+  </section>
+
+  <section class="card" id="tools">
+    <h2>Crypto AML Tool Comparison: Coverage and Strengths</h2>
+
+    <table aria-label="Crypto AML tool comparison">
+      <thead>
+        <tr><th>Provider</th><th>Coverage</th><th>Key strength</th><th>Best for</th></tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td><strong>Chainalysis KYT</strong></td>
+          <td>BTC, ETH, Tron, SOL, 20+</td>
+          <td>Broadest entity database; law enforcement track record</td>
+          <td>Large exchanges; financial institutions</td>
+        </tr>
+        <tr>
+          <td><strong>Elliptic Navigator</strong></td>
+          <td>BTC, ETH, DeFi, cross-chain</td>
+          <td>Strong DeFi and cross-chain coverage</td>
+          <td>DeFi protocols; multi-asset fintechs</td>
+        </tr>
+        <tr class="highlight">
+          <td><strong>TRM Labs</strong></td>
+          <td>30+ chains</td>
+          <td>Wide chain support; Travel Rule tooling</td>
+          <td>Mid-market VASPs; neobanks</td>
+        </tr>
+        <tr>
+          <td><strong>Crystal Blockchain</strong></td>
+          <td>BTC, ETH, ERC-20</td>
+          <td>Detailed BTC tracing; EU compliance templates</td>
+          <td>European VASPs; BTC-focused teams</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      For high-stakes decisions, run the address through two providers and compare category breakdowns. Published methodology: <a href="https://www.chainalysis.com/reports/crypto-crime-report/" target="_blank" rel="noopener nofollow">Chainalysis</a> · <a href="https://www.elliptic.co/resources" target="_blank" rel="noopener nofollow">Elliptic</a>.
+    </div>
+  </section>
+
+  <section class="card" id="sar">
+    <h2>SAR Filing in a Crypto AML Programme</h2>
+    <p>
+      A Suspicious Activity Report (SAR) — or Suspicious Transaction Report (STR) in some
+      jurisdictions — is a mandatory disclosure to your financial intelligence unit when you
+      identify transactions you know or suspect involve criminal proceeds or terrorist financing.
+    </p>
+
+    <div class="callout-grid">
+      <div class="mini">
+        <h3>When a SAR is triggered</h3>
+        <p class="muted">Direct sanction exposure. Direct or near-direct interaction with darknet markets, ransomware wallets, or fraud operations. Structuring behaviour designed to evade reporting thresholds. Customer whose stated source of funds is inconsistent with their on-chain profile. A compliance decision to block based on a high-risk screening result is often accompanied by a SAR filing.</p>
+        <div class="kpi-badges"><span>Sanctions exposure</span><span>Structuring</span><span>Profile mismatch</span></div>
+      </div>
+      <div class="mini">
+        <h3>SAR filing rules</h3>
+        <p class="muted">File with your jurisdiction's FIU: FinCEN (US) at <a href="https://bsaefiling.fincen.treas.gov/" target="_blank" rel="noopener nofollow">bsaefiling.fincen.treas.gov</a>, NCA (UK), or national FIU (EU). <strong>Do not</strong> tip off the subject — disclosure is prohibited and can constitute a criminal offense. Retain records for the required period (5 years under US BSA).</p>
+        <div class="kpi-badges"><span>No tipping off</span><span>5-year records</span><span>FIU per jurisdiction</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="review">
+    <h2>Evaluating a Crypto AML Compliance Provider</h2>
+
+    <div class="callout-grid">
+      <div class="mini">
+        <h3>Quality signals</h3>
+        <p class="muted">Published methodology documentation. Regular public illicit activity reports. Demonstrated law enforcement usage. Clear false-positive dispute process. SOC 2 Type II certification or equivalent. Transparent data retention and privacy policy.</p>
+      </div>
+      <div class="mini">
+        <h3>Warning signs</h3>
+        <p class="muted">No published methodology — risk scores with no explanation cannot be defended in a compliance audit. Overconfident language ("this address is criminal") rather than probabilistic framing. Thin coverage for your users' actual chains. No exportable audit trail for your records.</p>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>2026 regulatory trend:</strong> Regulators in the EU (MiCA), UK (FCA), and US (FinCEN) now assess the <em>quality</em> of VASP AML programmes — asking whether compliance actions were proportionate and evidence-based, not merely whether a tool was deployed. Vendor selection is an auditable compliance decision.
+    </div>
+  </section>
+
+  <section class="card" id="comparison">
+    <h2>Manual vs Automated Crypto AML Monitoring</h2>
+
+    <table aria-label="Crypto AML monitoring method comparison">
+      <thead>
+        <tr><th>Method</th><th>Best for</th><th>Pros</th><th>Cons</th></tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td><strong>Manual (dashboard)</strong></td>
+          <td>Low volume; investigations; spot checks</td>
+          <td>No integration needed; flexible interpretation</td>
+          <td>Doesn't scale; coverage gaps under pressure</td>
+        </tr>
+        <tr>
+          <td><strong>Batch screening</strong></td>
+          <td>Periodic re-review of existing user wallets</td>
+          <td>Covers existing book; catches updated attribution</td>
+          <td>Lagging — not real-time</td>
+        </tr>
+        <tr class="highlight">
+          <td><strong>Real-time API</strong></td>
+          <td>Exchanges; payment processors; high-volume VASPs</td>
+          <td>Every transaction monitored; automated flow; full log</td>
+          <td>Integration cost; requires codified risk policy</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      Any regulated VASP processing more than a few hundred transactions per day needs real-time API monitoring. Manual review at scale is an audit liability, not a compliance programme.
+    </div>
+  </section>
+
+  <section class="card" id="best-practices">
+    <h2>Best Practices for Crypto AML Teams</h2>
+    <ul>
+      <li><strong>Write a risk-appetite statement before configuring any tool.</strong> Define acceptable risk levels by user type and transaction category. Vendor defaults are a starting point, not a policy.</li>
+      <li><strong>Screen on deposit and withdrawal, not just onboarding.</strong> FATF requires ongoing monitoring. A clean wallet at signup can interact with a sanctioned entity six months later.</li>
+      <li><strong>Train staff to interpret category breakdowns, not just scores.</strong> Direct sanction exposure at 2% of a wallet's history requires immediate action. Indirect P2P at four hops at a medium score requires documentation. These are different responses.</li>
+      <li><strong>Document every decision with policy citations.</strong> "Score = 82, §4.3 requires block for mixer exposure &gt;75" is defensible. "Tool flagged it" is not.</li>
+      <li><strong>Track your false positive rate quarterly.</strong> Above 10–15% cleared accounts signals miscalibrated thresholds — adjust the category-response matrix, not the tool.</li>
+      <li><strong>Stay current with FATF and local guidance.</strong> The regulatory framework for virtual assets is evolving faster than most other financial sectors. Subscribe to updates at <a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations.html" target="_blank" rel="noopener nofollow">fatf-gafi.org</a>.</li>
+    </ul>
+
+    <div class="note">
+      <strong>Most common mistake:</strong> Treating a high score as conclusive without reading the category breakdown. A wallet can score 80 driven entirely by indirect P2P contact at four hops — which requires documentation, not blocking. Read what the score is composed of before acting.
+    </div>
+  </section>
+
+  <section class="card" id="troubleshooting">
+    <h2>Troubleshooting Common Crypto AML Issues</h2>
+
+    <h3>"High-risk score on an address with no obvious illicit connections"</h3>
+    <ul>
+      <li>Indirect exposure at 1–2 hops from a counterparty who used a mixer can elevate scores significantly. Run the address on a second tool and compare category breakdowns — divergent outputs suggest a possible false positive worth investigating.</li>
+    </ul>
+
+    <h3>"Score changed significantly without new on-chain activity"</h3>
+    <ul>
+      <li>Analytics providers continuously re-attribute addresses as new illicit clusters are identified. Document both scores with dates and assess whether the new attribution is credible based on the actual transaction history.</li>
+    </ul>
+
+    <h3>"Compliance team can't agree on the response to a medium-score result"</h3>
+    <ul>
+      <li>This signals a policy gap, not a tool problem. Medium-risk cases are where the category-response matrix must be explicit. Write the matrix before the next disputed case — not during it.</li>
+    </ul>
+
+    <div class="note">
+      <strong>Best approach:</strong> Use the transaction graph visualiser to trace the specific entities and paths generating the score. Converting "score = 68" into "this entity at this hop distance" makes the decision defensible and consistent.
+    </div>
+  </section>
+
+  <section class="eeat" id="eeat" aria-labelledby="eeat-title">
+    <h2 id="eeat-title">Crypto AML: Sources &amp; Authoritative References</h2>
+
+    <div class="grid-2">
+      <div>
+        <h3>Regulatory standards</h3>
+        <ul>
+          <li><a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Recommendations.html" target="_blank" rel="noopener nofollow">FATF — The 40 Recommendations (Rec. 15 &amp; 16)</a></li>
+          <li><a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Guidance-RBA-virtual-assets-2021.html" target="_blank" rel="noopener nofollow">FATF — Risk-Based Approach Guidance for Virtual Assets</a></li>
+          <li><a href="https://www.fincen.gov/resources/statutes-regulations/guidance/application-fincens-regulations-certain-business-models" target="_blank" rel="noopener nofollow">FinCEN — BSA Application to Virtual Currency</a></li>
+          <li><a href="https://bsaefiling.fincen.treas.gov/" target="_blank" rel="noopener nofollow">FinCEN BSA E-Filing — SAR Submission Portal</a></li>
+          <li><a href="https://ofac.treasury.gov/sanctions-programs-and-country-information" target="_blank" rel="noopener nofollow">OFAC — Sanctions Programs &amp; SDN List</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Industry research &amp; analytics</h3>
+        <ul>
+          <li><a href="https://www.chainalysis.com/reports/crypto-crime-report/" target="_blank" rel="noopener nofollow">Chainalysis — 2024 Crypto Crime Report</a></li>
+          <li><a href="https://www.elliptic.co/resources" target="_blank" rel="noopener nofollow">Elliptic — Typologies Reports &amp; Methodology</a></li>
+          <li><a href="https://www.trmlabs.com/blog" target="_blank" rel="noopener nofollow">TRM Labs — Blockchain Intelligence Research</a></li>
+          <li><a href="https://crystalblockchain.com/resources/" target="_blank" rel="noopener nofollow">Crystal Blockchain — Compliance Resources</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Cryptocurrency_tumbler" target="_blank" rel="noopener nofollow">Wikipedia — Cryptocurrency Tumbler (technical reference)</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:1rem;">
+      <strong>About:</strong> Prepared by Crypto Finance Experts. Covers crypto AML framework, VASP obligations, transaction monitoring, risk categories, FATF Travel Rule, tool comparison, SAR filing, and troubleshooting. Updated <time datetime="2026-03-18">March 18, 2026</time>. Not legal advice.
+    </div>
+  </section>
+
+  <section class="card faq-section" aria-labelledby="faq">
+    <h2 id="faq">Crypto AML: Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f1" id="b1">
+        <h3>What is crypto AML and why does it matter?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f1" class="faq-content" role="region" aria-labelledby="b1">
+        <p>Crypto AML is the set of controls, policies, and tools that virtual asset businesses use to detect and prevent money laundering through blockchain transactions. It encompasses KYC/CDD at onboarding, ongoing transaction monitoring, sanctions screening, and SAR filing. It matters because FATF Recommendation 15 requires VASPs to apply AML controls equivalent to traditional financial institutions — and regulators in the EU (MiCA/TFR), US (FinCEN/BSA), and UK (FCA) all have active enforcement frameworks.</p>
+        <p>Beyond legal compliance, effective crypto AML protects organisations from processing criminal proceeds — which creates asset freeze risk, reputational damage, and in serious cases, secondary liability exposure. FATF mutual evaluations in 2023–2024 found over 60% of assessed VASPs had inadequate controls, with transaction monitoring gaps cited most frequently.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f2" id="b2">
+        <h3>What are the core components of a crypto AML programme?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f2" class="faq-content" role="region" aria-labelledby="b2">
+        <p>A complete crypto AML programme includes: (1) Customer Due Diligence (KYC) — verifying identity at onboarding and applying EDD for high-risk users; (2) ongoing transaction monitoring — screening wallet addresses at every deposit and withdrawal using blockchain analytics; (3) sanctions screening — checking users and counterparty wallets against OFAC SDN and equivalent lists; (4) Travel Rule compliance — collecting and transmitting originator/beneficiary data above jurisdiction thresholds; (5) SAR/STR filing — reporting suspicious activity to the relevant FIU; and (6) record-keeping — maintaining documentation for the required retention period.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f3" id="b3">
+        <h3>What is the FATF Travel Rule for crypto AML?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f3" class="faq-content" role="region" aria-labelledby="b3">
+        <p>The FATF Travel Rule (Recommendation 16) requires VASPs to collect and transmit originator and beneficiary identity data with virtual asset transfers above a threshold — typically USD/EUR 1,000, with no threshold under the EU's Transfer of Funds Regulation. This mirrors the wire transfer requirement applied to banks. The practical challenge is that crypto lacks SWIFT-style messaging infrastructure, so specialised Travel Rule solutions (Notabene, Sygna, Verifyvasp) have emerged to handle VASP-to-VASP data exchange. Travel Rule compliance is a parallel obligation to transaction monitoring — passing identity data does not discharge the duty to screen funds for illicit exposure.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f4" id="b4">
+        <h3>When is a SAR required in a crypto AML programme?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f4" class="faq-content" role="region" aria-labelledby="b4">
+        <p>A SAR is required when you know, suspect, or have reasonable grounds to suspect that a transaction involves proceeds of crime or terrorist financing. In practice this covers: direct exposure to OFAC-sanctioned wallets, near-direct interaction with darknet markets or ransomware operators, structuring behaviour (multiple transactions below reporting thresholds designed in aggregate to move a larger amount), and customers whose on-chain activity is inconsistent with their stated source of funds.</p>
+        <p>Critically: once you have filed or are filing a SAR, you must not tip off the subject. Telling a customer their account was blocked due to a SAR is prohibited in most jurisdictions and can constitute an offence. You can tell users their account is restricted for compliance reasons without disclosing the SAR itself.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f5" id="b5">
+        <h3>Do DeFi protocols have crypto AML obligations?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f5" class="faq-content" role="region" aria-labelledby="b5">
+        <p>This is one of the most actively contested questions in crypto regulation. Truly decentralised protocols without a central operator are not yet clearly classified as VASPs under FATF guidance in most jurisdictions. However, the regulatory perimeter is moving. Frontend operators, deployer teams, governance multisig holders, and entities receiving fees from a protocol increasingly face scrutiny and potential VASP classification.</p>
+        <p>Many DeFi protocols have adopted voluntary wallet screening at the frontend level — blocking connections from sanctioned addresses and high-risk wallets — as a practical risk management measure, even without explicit legal obligation. The EU's MiCA regulation and FATF's evolving guidance both push toward broader coverage of DeFi participants over time.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f6" id="b6">
+        <h3>How does crypto AML differ from traditional financial AML?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f6" class="faq-content" role="region" aria-labelledby="b6">
+        <p>The obligations are structurally similar — KYC, transaction monitoring, SAR filing, record-keeping — but the technical tools and data sources differ fundamentally. Traditional AML monitors counterparty bank account names and transaction narratives; crypto AML monitors blockchain address graphs and on-chain fund flows.</p>
+        <p>Crypto AML offers a genuine advantage traditional finance lacks: the complete transaction history of every wallet address is permanently and publicly visible on-chain. Unlike bank records (which require court orders or regulatory requests to access), blockchain data is open — meaning analytics tools can trace fund flows across years of history in seconds. This transparency is why FATF considers well-implemented crypto AML potentially more effective than traditional financial monitoring when properly deployed.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f7" id="b7">
+        <h3>Which crypto AML tool should a VASP choose?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f7" class="faq-content" role="region" aria-labelledby="b7">
+        <p>Match the tool to your primary chain exposure, transaction volume, and integration requirements. Chainalysis KYT is the market leader for large exchanges needing forensic quality and regulatory defensibility — it has the broadest entity database and the strongest track record in law enforcement contexts. Elliptic Navigator has stronger DeFi and cross-chain coverage. TRM Labs covers 30+ chains at competitive pricing, making it well-suited for mid-market VASPs with diverse asset mixes. Crystal Blockchain is strong for Bitcoin-focused European VASPs.</p>
+        <p>Before committing, run a test batch of addresses with known risk profiles through shortlisted vendors and compare the category breakdowns — not just the headline scores. Vendors who publish detailed methodology documentation tend to produce more defensible outputs in regulatory examinations.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f8" id="b8">
+        <h3>How often should crypto AML transaction monitoring run?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f8" class="faq-content" role="region" aria-labelledby="b8">
+        <p>Real-time at every transaction for regulated VASPs processing significant volume — screening at every deposit and withdrawal via API. This is the FATF Recommendation 15 standard for ongoing monitoring. Onboarding-only screening misses all post-signup activity and does not satisfy the ongoing monitoring obligation.</p>
+        <p>For existing user wallets: periodic batch re-screening at least quarterly for standard-risk users, more frequently for high-value accounts. Analytics databases are updated continuously — a previously-clean address can be re-attributed to a newly-identified illicit cluster without any new on-chain activity from the user. Documenting each re-screening run demonstrates the ongoing monitoring programme required by regulators.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f9" id="b9">
+        <h3>Can crypto AML screening produce false positives?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f9" class="faq-content" role="region" aria-labelledby="b9">
+        <p>Yes — false positives are inherent to probabilistic heuristic clustering. Common scenarios: CoinJoin users whose privacy technique resembles mixer activity; users withdrawing from large exchange hot wallets shared across thousands of customers; and addresses in clusters recently re-attributed to newly-identified illicit entities without any change to the user's own on-chain activity.</p>
+        <p>Managing false positives well is a marker of a mature crypto AML programme. Build a documented dispute resolution process with a clear SLA (typically 5 business days for review with evidence). Track the false positive rate quarterly — above 10–15% of blocked accounts being cleared after review signals miscalibrated thresholds, not insufficient blocking. Adjust the category-response matrix accordingly.</p>
+      </div>
+    </div>
+
+  </section>
+
+</article>
+</main>
+
+<footer class="container" role="contentinfo" style="padding:2rem 0;border-top:1px solid var(--line);margin-top:2rem">
+  <p class="muted">© 2026 Crypto AML Guide. Educational content with compliance-first operational focus. Not legal advice. <time datetime="2026-03-18">March 18, 2026</time>.</p>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      const body = document.getElementById(btn.getAttribute('aria-controls'));
+      btn.setAttribute('aria-expanded', String(!open));
+      btn.querySelector('.faq-plus').textContent = open ? '+' : '−';
+      body.style.maxHeight = open ? '0' : body.scrollHeight + 'px';
+      
+      body.classList.toggle('open', !open);
+    });
+  });
+</script>
+
+</body>
+</html>
